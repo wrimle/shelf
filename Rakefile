@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "shelf"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Publish ebooks to Epubify Shelf}
+    gem.description = %Q{Epubify Shelf is presently under construction. It will be an online bookshelf for ebooks.}
     gem.email = "rune@epubify.com"
     gem.homepage = "http://github.com/wrimle/shelf"
     gem.authors = ["Rune Myrland"]
