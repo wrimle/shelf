@@ -1,6 +1,10 @@
 = shelf
 
-Description goes here.
+Publish ebooks to Epubify Shelf
+
+== Description
+
+Epubify Shelf is presently under construction. It will be an online bookshelf for ebooks.
 
 == Note on Patches/Pull Requests
  
