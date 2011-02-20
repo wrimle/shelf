@@ -1,0 +1,4 @@
+
+test:
+  server: localhost:3000
+  api_key: your single_access_token
