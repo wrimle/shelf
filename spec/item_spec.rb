@@ -60,6 +60,7 @@ module Epubify
     end
 
 
+
     it "destroys an item" do
       items = Shelf.new.items
       count = items.length
@@ -69,6 +70,27 @@ module Epubify
 
       Shelf.new.items.length.should be < count
     end
+
+
+    it "creates an item with periodical" do
+      periodical_token = config["test"]["periodical_token"]
+
+      count = Shelf.new.items.length
+
+      item = Epubify::Item.new
+      item.title = "MyDaily #{Date.today.to_s}"
+      item.summary = "Daily news aggregated at #{DateTime.now.to_s}"
+      item.periodical_token = periodical_token
+      item.save
+
+      Shelf.new.items.length.should be > count
+      item.id.should_not be_nil
+      item.periodical_id.should_not be_nil
+
+      item.destroy
+    end
+
+
 
   end
 

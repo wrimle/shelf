@@ -4,7 +4,7 @@ require 'shelf/download.rb'
 module Epubify
 
   class Item
-    attr_accessor :id, :title, :summary, :description, :cover_url, :thumbnail_url, :language, :issued
+    attr_accessor :id, :periodical_token, :periodical_id, :title, :summary, :description, :cover_url, :thumbnail_url, :language, :issued
 
     def initialize hash = nil, &block
       summary = ""
@@ -27,6 +27,7 @@ module Epubify
 
     def from_hash h
       self.id = h["id"]
+      self.periodical_id = h["periodical_id"]
       self.title = h["title"]
       self.summary = h["summary"]
       self.description = h["description"]
@@ -37,7 +38,7 @@ module Epubify
     end
 
     def save
-      @query = { :item => { :title => title, :summary => summary, :description => description, :cover_url => cover_url, :thumbnail_url => thumbnail_url, :language => language, :issued => issued } }
+      @query = { :item => { :periodical_token => periodical_token, :title => title, :summary => summary, :description => description, :cover_url => cover_url, :thumbnail_url => thumbnail_url, :language => language, :issued => issued } }
 
       if id
         res = ShelfApi.update_item(id, @query)
